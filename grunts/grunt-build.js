@@ -15,6 +15,7 @@ module.exports = function (grunt) {
 
     switch (this.data.name) {
       case 'bootstrap4' :  includeFile = 'summernote/bs4/settings'; break;
+      case 'jui' :  includeFile = 'summernote/jui/settings'; break;
       case 'lite' :  includeFile = 'summernote/lite/settings'; break;
       default :  includeFile = 'summernote/bs3/settings'; break;
     }

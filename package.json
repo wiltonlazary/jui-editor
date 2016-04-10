@@ -36,6 +36,8 @@
     "grunt-recess": "*",
     "grunt-saucelabs": "*",
     "grunt-webfont": "^1.0.2",
+    "jui": "^2.0.2",
+    "jui-core": "^2.0.4",
     "karma": "^0.13.3",
     "karma-chrome-launcher": "^0.2.0",
     "karma-coverage": "^0.5.3",

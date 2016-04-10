@@ -9,6 +9,8 @@ require.config({
     jquery: jqueryLink,
     bootstrap: '//netdna.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap',
     bootstrap4: '../../node_modules/bootstrap/dist/js/bootstrap',
+    'jui-core': '../../node_modules/jui-core/dist/core',
+    'jui': '../../node_modules/jui/dist/ui',
     lang: '../../lang/summernote-ko-KR'
   },
   shim: {
@@ -45,6 +47,11 @@ require(['jquery', 'summernote'], function ($) {
       break;
     case 'bs4':
       promise = requireByPromise(['bootstrap4', 'summernote/bs4/settings']).then(function () {
+        return requireByPromise(['lang']);
+      });
+      break;
+    case 'jui':
+      promise = requireByPromise(['summernote/jui/settings']).then(function () {
         return requireByPromise(['lang']);
       });
       break;
