@@ -91,6 +91,7 @@ define([
           $imageUrl.on('keyup paste', function () {
             var url = $imageUrl.val();
             ui.toggleBtn($imageBtn, url);
+            console.log(url);
           }).val('').trigger('focus');
           self.bindEnterKey($imageUrl, $imageBtn);
         });

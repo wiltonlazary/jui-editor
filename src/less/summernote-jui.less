@@ -172,7 +172,7 @@
     .note-table {
 
       ul {
-
+        min-width: 90px !important;
         li:hover {
           background-image:none !important;
           background-color: transparent !important;
@@ -472,5 +472,16 @@
 .jui .panel > .head {
   height: auto;
   line-height: 100%;
-  padding: 5px;
+  padding: 0px 5px;
+  padding-bottom:5px;
+}
+
+.jui .btngroup + .btngroup, .jui .group + .group {
+  margin-top:5px;
+}
+
+.jui .dropup ul, .jui .dropdown ul {
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
 }

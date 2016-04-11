@@ -117,7 +117,6 @@ define([
 
     $node.append($ul);
 
-
     window.jui.create('ui.dropdown', $node);
 
     $node.on('click', '> ul > li', function (e) {
@@ -399,7 +398,7 @@ define([
     }).render();
   };
 
-  var dialog = renderer.create('<div class="window window-white note-dialog" aria-hidden="false" tabindex="-1"/>', function ($node, options) {
+  var dialog = renderer.create('<div class="window note-dialog" aria-hidden="false" tabindex="-1"/>', function ($node, options) {
 
     $node.html([
       (options.title ?
@@ -447,12 +446,12 @@ define([
   var imageDialog = function (opt) {
     var body = '<div class="group note-group-select-from-files">' +
       '<label>' + opt.lang.image.selectFromFiles + '</label>' +
-      '<input class="note-image-input form-control" type="file" name="files" accept="image/*" multiple="multiple" />' +
+      '<input class="note-image-input form-control input " type="file" name="files" accept="image/*" multiple="multiple" />' +
       opt.imageLimitation +
       '</div>' +
       '<div class="group" style="overflow:auto;">' +
       '<label>' + opt.lang.image.url + '</label>' +
-      '<input class="note-image-url form-control col-md-12" type="text" />' +
+      '<input class="note-image-url form-control input" type="text" />' +
       '</div>';
     var footer = [
       '<button href="#" type="button" class="btn focus note-image-btn disabled" disabled>',
@@ -543,8 +542,8 @@ define([
     icon: icon,
 
     toggleBtn: function ($btn, isEnable) {
-      $btn.toggleClass('disabled', !isEnable);
-      $btn.attr('disabled', !isEnable);
+      $btn.toggleClass('disabled', isEnable);
+      $btn.attr('disabled', $btn.hasClass('disabled'));
     },
 
     toggleBtnActive: function ($btn, isActive) {
@@ -557,14 +556,12 @@ define([
     },
 
     onDialogShown: function ($dialog, handler) {
-
-      $dialog.jui('off');
+      $dialog.jui('off','show');
       $dialog.jui('on', 'show', handler);
     },
 
     onDialogHidden: function ($dialog, handler) {
-
-      $dialog.jui('off');
+      $dialog.jui('off', 'hide');
       $dialog.jui('on', 'hide', handler);
     },
 
